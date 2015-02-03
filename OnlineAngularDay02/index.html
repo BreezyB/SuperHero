@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="HomeController" style="height: 100%; width: 100%">
+        <div class="row form-inline inputRow">
+            <input class="inputForm form-control" ng-model="inputName" placeholder="Superhero Name" />
+            <input class="inputForm form-control" ng-model="inputDesc" placeholder="Superhero Description" />
+            <input class="inputForm form-control" ng-model="inputImg" placeholder="Image Url" />
+            <button class="btn btn-success inputButton" ng-click="addHero();">Add</button>
+        </div>
+        <div class="row" ng-show="inputImg">
+            <img ng-src="{{inputImg}}" class="img-rounded" style="max-height: 10%; max-width: 10%;" />
+        </div>
+
+        <div class="row" ng-repeat="hero in heroArray">
+            <div class="well col-sm-12">
+                <span ng-show="!isEditing">
+                    <span class="col-sm-2">
+                        <img ng-src="{{hero.image}}" class="img-rounded heroImage" />
+                    </span>
+                    <span class="col-sm-10">
+                        <h3>{{hero.name}}</h3>
+                        <h5>{{hero.description}}</h5>
+                        <button class="btn btn-warning" ng-click="isEditing = true; editHero = hero.clone();">Edit</button>
+                        <button class="btn btn-danger" ng-click="deleteHero($index)">Delete</button>
+                    </span>
+                </span>
+                <span ng-show="isEditing">
+                    <span class="col-sm-2">
+                        <input class="form-control" placeholder="Image Url" ng-model="editHero.image" />
+                        <img ng-src="{{editHero.image}}" class="img-rounded heroImage" />
+                    </span>
+                    <span class="col-sm-10">
+                        <input ng-model="editHero.name" placeholder="Superhero Name" class="form-control" />
+                        <input ng-model="editHero.description" placeholder="Superhero Description" class="form-control" />
+                        <button class="btn btn-success" ng-click="saveEdit($index, editHero); isEditing = false;">Save</button>
+                        <button class="btn btn-danger" ng-click="isEditing = false; ">Cancel</button>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/Scripts/app.js"></script>
+    <script src="app/Scripts/Services/HeroFactory.js"></script>
+    <script src="app/Scripts/Services/HeroService.js"></script>
+    <script src="app/Scripts/Controllers/HomeController.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿body, html {
+    background: url(http://wallpaperest.com/wallpapers/american-flag-powerpoint-background_155418.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.inputRow {
+    margin-top: 1%;
+    height: 7%;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.inputForm {
+    height: 100%;
+    width: 20%;
+}
+
+.inputButton {
+    height: 100%;
+    width: 10%;
+}
+
+.heroImage {
+    height: auto;
+    width: 100%;
+}
+.well {
+    max-width: 95%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    background-color: rgba(255, 255, 255, 0.61);
+    border: none;
+}
+.row {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
