@@ -19,29 +19,29 @@
 
         <div class="row" ng-repeat="hero in heroArray">
             <div class="well col-sm-12">
-                <span ng-show="!isEditing">
-                    <span class="col-sm-2">
+                <div ng-show="!isEditing">
+                    <div class="col-sm-2">
                         <img ng-src="{{hero.image}}" class="img-rounded heroImage" />
-                    </span>
-                    <span class="col-sm-10">
+                    </div>
+                    <div class="col-sm-10">
                         <h3>{{hero.name}}</h3>
                         <h5>{{hero.description}}</h5>
                         <button class="btn btn-warning" ng-click="isEditing = true; editHero = hero.clone();">Edit</button>
                         <button class="btn btn-danger" ng-click="deleteHero($index)">Delete</button>
-                    </span>
-                </span>
-                <span ng-show="isEditing">
-                    <span class="col-sm-2">
+                    </div>
+                </div>
+                <div ng-show="isEditing">
+                    <div class="col-sm-2">
                         <input class="form-control" placeholder="Image Url" ng-model="editHero.image" />
                         <img ng-src="{{editHero.image}}" class="img-rounded heroImage" />
-                    </span>
-                    <span class="col-sm-10">
+                    </div>
+                    <div class="col-sm-10">
                         <input ng-model="editHero.name" placeholder="Superhero Name" class="form-control" />
                         <input ng-model="editHero.description" placeholder="Superhero Description" class="form-control" />
                         <button class="btn btn-success" ng-click="saveEdit($index, editHero); isEditing = false;">Save</button>
                         <button class="btn btn-danger" ng-click="isEditing = false; ">Cancel</button>
-                    </span>
-                </span>
+                    </div>
+                </div>
             </div>
         </div>
 

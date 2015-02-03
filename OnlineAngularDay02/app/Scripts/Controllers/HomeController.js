@@ -8,6 +8,7 @@
         this.image = image;
         this.key = key;
     }
+    //Used for the edit, to create a copy of the Hero since angular.clone() did not work.
     $scope.Hero.prototype.clone = function () {
         var hero = this;
         return new $scope.Hero(hero.name, hero.description, hero.image, hero.key);
@@ -37,6 +38,7 @@
         })
     }
 
+    //Using factory for GET to show how to write a factory in Angular
     HeroFactory.GetHero().then(function (data) {
         for (var i = 0; i < data.length; i++) {
             $scope.heroArray.push(new $scope.Hero(data[i].name, data[i].description, data[i].image, data[i].key));
